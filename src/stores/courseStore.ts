@@ -176,7 +176,10 @@ export const useCourseStore = create<CourseState>((set, get) => ({
       const nextPage = page + 1;
       const { courses: newCourses, hasMore: nextHasMore } = await getMappedCourses(nextPage, 10, bookmarks);
       
-      const allCourses = [...courses, ...newCourses];
+      const existingIds = new Set(courses.map((c) => c.id));
+      const uniqueNewCourses = newCourses.filter((c) => !existingIds.has(c.id));
+      
+      const allCourses = [...courses, ...uniqueNewCourses];
       writeCoursesCache(allCourses);
 
       set({
