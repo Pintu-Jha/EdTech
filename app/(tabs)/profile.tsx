@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Alert, Pressable, Switch, Text, TextInput, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { useState } from "react";
+import { Alert, Pressable, Switch, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useAuth } from "@/hooks/useAuth";
@@ -53,7 +53,6 @@ export default function ProfileScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-canvas">
-      {/* Header card */}
       <View className="items-center rounded-b-[20px] bg-card px-5 pb-6 pt-6">
         <Pressable className="active:opacity-80">
           {user?.avatar ? (
@@ -91,7 +90,6 @@ export default function ProfileScreen() {
         </Text>
       </View>
 
-      {/* Stats row */}
       <View className="mx-5 mt-4 flex-row gap-3">
         <View className="flex-1 items-center rounded-btn bg-card p-3.5">
           <Text className="text-2xl font-bold text-accent">{getEnrolledCount()}</Text>
@@ -103,13 +101,11 @@ export default function ProfileScreen() {
         </View>
       </View>
 
-      {/* Settings section */}
       <View className="mt-6">
         <Text className="mb-2 px-5 text-[10px] font-semibold uppercase tracking-wider text-muted">
           Account
         </Text>
 
-        {/* Edit Profile row */}
         <Pressable
           onPress={() => setShowEditProfile(!showEditProfile)}
           className="flex-row items-center bg-card px-5 py-3.5"
@@ -120,7 +116,6 @@ export default function ProfileScreen() {
           <Feather name="chevron-right" size={14} color="#2D3A52" />
         </Pressable>
 
-        {/* Edit Profile inline form */}
         {showEditProfile ? (
           <View className="bg-card px-5 py-3" style={{ borderBottomWidth: 1, borderBottomColor: COLORS.borderSubtle }}>
             <TextInput
@@ -142,7 +137,6 @@ export default function ProfileScreen() {
           </View>
         ) : null}
 
-        {/* Notifications row */}
         <View
           className="flex-row items-center bg-card px-5 py-3.5"
           style={{ borderBottomWidth: 1, borderBottomColor: COLORS.borderSubtle }}
@@ -157,7 +151,6 @@ export default function ProfileScreen() {
           />
         </View>
 
-        {/* Logout row */}
         <Pressable
           onPress={onLogout}
           className="flex-row items-center bg-card px-5 py-3.5"

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-import { register as registerRequest, login as loginRequest } from "@/api/auth";
+import { login as loginRequest, register as registerRequest } from "@/api/auth";
 import { registerApiAuthHandlers } from "@/api/client";
 import { fetchCurrentUser } from "@/api/users";
 import { secureStorageService } from "@/services/secureStorageService";
@@ -83,8 +83,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
 
     try {
       await registerRequest(payload);
-      
-      // FreeAPI does not return auth tokens on register, so we automatically log the user in immediately after.
+
       await get().login(payload.email, payload.password);
     } catch (error: unknown) {
       set({ isLoading: false });

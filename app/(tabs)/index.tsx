@@ -53,7 +53,7 @@ export default function HomeScreen() {
     <SafeAreaView className="flex-1 bg-canvas">
       <View className="px-5 pb-1 pt-4">
         <Text className="text-xl font-bold text-primary">
-          Hii, {firstName}
+          Hello, {firstName}
         </Text>
         <Text className="mt-0.5 text-[13px] text-secondary">
           What will you learn today?

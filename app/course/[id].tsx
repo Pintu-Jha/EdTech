@@ -1,14 +1,14 @@
-import { useRouter, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { Badge } from "@/components/ui/Badge";
 import { BookmarkButton } from "@/components/course/BookmarkButton";
-import { useCourseStore } from "@/stores/courseStore";
+import { Badge } from "@/components/ui/Badge";
 import { storageService } from "@/services/storageService";
+import { useCourseStore } from "@/stores/courseStore";
 import { STORAGE_KEYS } from "@/utils/constants";
 
 function readEnrolledSet(): Set<string> {
@@ -68,7 +68,6 @@ export default function CourseDetailScreen() {
   return (
     <View className="flex-1 bg-canvas">
       <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 100 }}>
-        {/* Hero image */}
         <View>
           <Image
             source={{ uri: course.thumbnail }}
@@ -78,7 +77,6 @@ export default function CourseDetailScreen() {
             transition={300}
           />
 
-          {/* Gradient overlay at bottom of hero */}
           <View
             style={{
               position: "absolute",
@@ -95,7 +93,6 @@ export default function CourseDetailScreen() {
             <View style={{ flex: 1, backgroundColor: "rgba(13, 15, 20, 0.85)" }} />
           </View>
 
-          {/* Back button */}
           <Pressable
             onPress={() => router.back()}
             className="absolute left-4 items-center justify-center rounded-full"
@@ -109,7 +106,6 @@ export default function CourseDetailScreen() {
             <Feather name="arrow-left" size={18} color="#F0F2F8" />
           </Pressable>
 
-          {/* Bookmark button */}
           <View
             className="absolute right-4 items-center justify-center rounded-full"
             style={{
@@ -127,21 +123,16 @@ export default function CourseDetailScreen() {
           </View>
         </View>
 
-        {/* Content overlapping hero */}
         <View className="-mt-5 rounded-t-[20px] bg-canvas px-5 pt-5">
-          {/* Badges row */}
           <View className="flex-row items-center gap-2">
             <Badge label={course.category} />
             {isEnrolled ? <Badge label="Enrolled ✓" variant="success" /> : null}
           </View>
 
-          {/* Title */}
           <Text className="mt-2 text-xl font-bold text-primary">{course.title}</Text>
 
-          {/* Price */}
           <Text className="mt-1.5 text-[22px] font-bold text-accent">{priceLabel}</Text>
 
-          {/* Instructor card */}
           <View className="mt-3 flex-row items-center rounded-btn bg-card p-3">
             {course.instructor.avatar ? (
               <Image
@@ -162,7 +153,6 @@ export default function CourseDetailScreen() {
             </View>
           </View>
 
-          {/* Description */}
           <Text
             className="mt-3 text-[13px] leading-[22px] text-secondary"
             numberOfLines={showFullDescription ? undefined : 3}
@@ -177,7 +167,6 @@ export default function CourseDetailScreen() {
         </View>
       </ScrollView>
 
-      {/* Sticky bottom bar */}
       <View
         className="flex-row items-center gap-3 border-t border-subtle bg-elevated px-5 py-3"
         style={{ paddingBottom: Math.max(insets.bottom, 12) }}

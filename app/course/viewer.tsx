@@ -1,7 +1,7 @@
-import { useRouter, useLocalSearchParams } from "expo-router";
+import { Feather } from "@expo/vector-icons";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { CourseWebView } from "@/components/webview/CourseWebView";
@@ -46,7 +46,6 @@ export default function CourseViewerScreen() {
 
   return (
     <View className="flex-1 bg-canvas">
-      {/* Header */}
       <View
         className="flex-row items-center justify-between border-b border-subtle bg-elevated px-4 pb-3"
         style={{ paddingTop: insets.top + 8 }}
@@ -64,7 +63,6 @@ export default function CourseViewerScreen() {
         <View className="w-8" />
       </View>
 
-      {/* Progress bar */}
       {isLoading ? (
         <View className="h-0.5 w-full bg-border-subtle">
           <View

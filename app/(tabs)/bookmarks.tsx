@@ -13,7 +13,6 @@ export default function BookmarksScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-canvas">
-      {/* Header */}
       <View className="px-5 pt-4">
         <Text className="text-xl font-bold text-primary">Saved Courses</Text>
         <Text className="mt-1 text-[13px] text-secondary">

@@ -1,9 +1,9 @@
+import { Feather } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { Pressable, Text, TextInput, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useAuth } from "@/hooks/useAuth";
@@ -51,8 +51,16 @@ export default function RegisterScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-canvas">
-      <View className="flex-1 justify-center px-5">
-        {/* Logo */}
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+      >
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+        >
+          <View className="px-5">
         <View className="items-center">
           <View className="h-10 w-10 items-center justify-center rounded-btn bg-accent">
             <Text className="text-lg font-bold text-white">L</Text>
@@ -61,7 +69,6 @@ export default function RegisterScreen() {
           <Text className="mt-1 text-[13px] text-secondary">Start your learning journey</Text>
         </View>
 
-        {/* Toggle tabs */}
         <View className="mt-8 flex-row rounded-btn bg-card p-1">
           <Link href="/(auth)/login" asChild>
             <Pressable className="flex-1 py-2.5">
@@ -73,7 +80,6 @@ export default function RegisterScreen() {
           </View>
         </View>
 
-        {/* Form card */}
         <View className="mt-4 rounded-card bg-card p-5">
           <View className="gap-4">
             <View>
@@ -173,7 +179,9 @@ export default function RegisterScreen() {
             </Text>
           </Pressable>
         </View>
-      </View>
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }

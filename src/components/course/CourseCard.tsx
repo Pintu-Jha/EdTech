@@ -1,11 +1,11 @@
-import { memo } from "react";
-import { Pressable, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { memo } from "react";
+import { Pressable, Text, View } from "react-native";
 
-import type { Course } from "@/types/course.types";
 import { BookmarkButton } from "@/components/course/BookmarkButton";
 import { Badge } from "@/components/ui/Badge";
+import type { Course } from "@/types/course.types";
 
 interface CourseCardProps {
   course: Course;
@@ -22,7 +22,6 @@ function CourseCardBase({ course, onPress, onToggleBookmark }: CourseCardProps) 
         className="mb-3 overflow-hidden rounded-card bg-card"
         style={isEnrolled ? { borderLeftWidth: 2, borderLeftColor: "#6C63FF" } : undefined}
       >
-        {/* Thumbnail */}
         <Image
           source={{ uri: course.thumbnail }}
           style={{ width: "100%", aspectRatio: 16 / 9 }}
@@ -31,13 +30,11 @@ function CourseCardBase({ course, onPress, onToggleBookmark }: CourseCardProps) 
           transition={300}
         />
 
-        {/* Body */}
         <View className="p-3">
           <Text className="text-sm font-semibold text-primary" numberOfLines={2}>
             {course.title}
           </Text>
 
-          {/* Instructor row */}
           <View className="mt-1.5 flex-row items-center gap-1.5">
             {course.instructor.avatar ? (
               <Image
@@ -53,7 +50,6 @@ function CourseCardBase({ course, onPress, onToggleBookmark }: CourseCardProps) 
             <Text className="text-[11px] text-secondary">{course.instructor.name}</Text>
           </View>
 
-          {/* Footer */}
           <View className="mt-2 flex-row items-center justify-between">
             <Badge label={course.category} />
             <BookmarkButton isBookmarked={course.isBookmarked} onPress={onToggleBookmark} />

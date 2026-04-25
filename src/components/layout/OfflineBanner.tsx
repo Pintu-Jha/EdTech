@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { useEffect } from "react";
+import { Text } from "react-native";
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
   withTiming,
 } from "react-native-reanimated";
 
@@ -29,7 +29,7 @@ export function OfflineBanner() {
       className="absolute left-0 right-0 top-0 z-50 flex-row items-center justify-center gap-1.5 bg-warning px-5 pb-2 pt-14"
     >
       <Feather name="wifi-off" size={12} color="#0D0F14" />
-      <Text className="text-[11px] font-semibold text-canvas">
+      <Text className="text-[11px] font-semibold text-canvasß">
         You are offline. Some content may be outdated.
       </Text>
     </Animated.View>
