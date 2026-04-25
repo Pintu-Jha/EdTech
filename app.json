@@ -8,7 +8,8 @@
     "scheme": "edtechassignment",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.anonymous.EdTechAssignment"
     },
     "android": {
       "adaptiveIcon": {
@@ -38,7 +39,7 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "reactCompiler": true
+      "reactCompiler": false
     }
   }
 }
