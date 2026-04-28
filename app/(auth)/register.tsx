@@ -7,6 +7,7 @@ import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput,
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { useAuth } from "@/hooks/useAuth";
+import { useUiStore } from "@/stores/uiStore";
 import { registerPayloadSchema } from "@/utils/validators";
 
 type RegisterFormValues = {
@@ -43,9 +44,12 @@ export default function RegisterScreen() {
     setSubmitError(null);
     try {
       await register({ ...values, role: "USER" });
+      useUiStore.getState().showToast("Account created successfully", "success");
       router.replace("/(tabs)");
     } catch (error: unknown) {
-      setSubmitError(getErrorMessage(error));
+      const message = getErrorMessage(error);
+      setSubmitError(message);
+      useUiStore.getState().showToast(message, "error");
     }
   });
 

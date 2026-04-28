@@ -8,6 +8,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useAuthBootstrap } from "@/hooks/useAuth";
 import { useNotifications } from "@/hooks/useNotifications";
 
+import { ToastContainer } from "@/components/ui/Toast";
+
 export default function RootLayout() {
   useNotifications();
   const { isBootstrapping } = useAuthBootstrap();
@@ -27,6 +29,7 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <StatusBar style="light" />
       <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#0D0F14" } }} />
+      <ToastContainer />
     </SafeAreaProvider>
   );
 }

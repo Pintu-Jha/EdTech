@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "EdTechAssignment",
-    "slug": "EdTechAssignment",
+    "slug": "edtech",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -18,7 +18,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.EdTechAssignment"
     },
     "web": {
       "output": "static",
@@ -40,6 +41,19 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": false
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "343d245c-2317-4d00-92b6-45aed62e8dd5"
+      }
+    },
+    "owner": "pintujha15",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/343d245c-2317-4d00-92b6-45aed62e8dd5"
     }
   }
 }

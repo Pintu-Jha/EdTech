@@ -10,7 +10,11 @@ export const storageService = {
   },
 
   getString(key: string): string | undefined {
-    return storage.getString(key);
+    try {
+      return storage.getString(key);
+    } catch {
+      return undefined;
+    }
   },
 
   setBoolean(key: string, value: boolean): void {

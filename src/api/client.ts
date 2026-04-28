@@ -1,13 +1,13 @@
+import NetInfo from "@react-native-community/netinfo";
 import axios, {
   AxiosError,
   type AxiosInstance,
   type AxiosRequestConfig,
   type InternalAxiosRequestConfig,
 } from "axios";
-import NetInfo from "@react-native-community/netinfo";
 
-import type { ApiError, ApiResponse, AuthData } from "@/types/api.types";
 import { secureStorageService } from "@/services/secureStorageService";
+import type { ApiError, ApiResponse, AuthData } from "@/types/api.types";
 import { APP_CONFIG, STORAGE_KEYS } from "@/utils/constants";
 import { logger } from "@/utils/logger";
 
